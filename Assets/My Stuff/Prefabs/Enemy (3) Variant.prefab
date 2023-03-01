@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &9176167347104588216
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: color
+      value: white
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: speed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: pointValue
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: attackDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: dropPercentage
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: maxCoinsDropped
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: minCoinsDropped
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: KBAttackTotalTime
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308816435018526002, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292121619445808133, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1928417306, guid: f817c6f0c787ac74ea27d1ce6577e762, type: 3}
+    - target: {fileID: 1292121619445808133, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292121619445808133, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6892764
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292121619445808133, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828480248516290058, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_Name
+      value: Enemy (3) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712126899918789670, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.3333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712126899918789670, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.3333333
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}

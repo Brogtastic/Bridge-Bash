@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - attackPoint
+  - Spawner
+  - Bridge1
+  - Bridge2
+  - Bridge3
+  - Bridge4
+  - Bridge5
+  - ScreenShake
+  - Coin
+  - OverParent
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemies
+  - Player
+  - Background
+  - Bridge
+  - Coins
+  - HoverEnemies
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 1630828961
+    locked: 0
+  - name: Bridge
+    uniqueID: 1736623445
+    locked: 0
+  - name: Enemies
+    uniqueID: 754734895
+    locked: 0
+  - name: Player
+    uniqueID: 4229242161
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Terrain
+    uniqueID: 3793104773
+    locked: 0
+  - name: UI
+    uniqueID: 88583325
+    locked: 0
