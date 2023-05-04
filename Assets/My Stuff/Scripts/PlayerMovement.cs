@@ -321,7 +321,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         isDeadGrounded = Physics2D.OverlapCircle(feetPos.position, 0.1f, whatIsGround);
 
-        if ((isGrounded == true) && (Input.GetButtonDown("Jump")) && (dontJump == false))
+        if ((isGrounded == true) && (Input.GetButtonDown("Jump")) && (dontJump == false) && (currentHealth > 0))
         {
             rb.velocity = Vector2.up * jumpForce;
             jumpTimeCounter = jumpTime;
