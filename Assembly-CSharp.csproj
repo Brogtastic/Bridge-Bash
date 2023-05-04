@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{3AB41CDF-EE12-D84A-A8A4-EDFE5D67FCE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -86,6 +85,7 @@
     <Compile Include="Assets\My Stuff\Scripts\PlayButton.cs" />
     <Compile Include="Assets\My Stuff\Scripts\HammerDieScript.cs" />
     <Compile Include="Assets\My Stuff\Scripts\Camera_Controller.cs" />
+    <Compile Include="Assets\beginningVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

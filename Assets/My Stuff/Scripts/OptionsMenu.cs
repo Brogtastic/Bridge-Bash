@@ -44,6 +44,9 @@ public class OptionsMenu : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(options);
+
+        print("Music volume at start: " + SFXVolume.musicVolume);
+        print("SFX volume at start: " + SFXVolume.sfxVolume);
     }
 
     private void Update()
@@ -59,11 +62,21 @@ public class OptionsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("volume", volume);
         SFXVolume.musicVolume = volume;
+        if (SFXVolume.musicVolume <= -35.8)
+        {
+            audioMixer.SetFloat("volume", -80);
+        }
+        print(SFXVolume.musicVolume);
     }
 
     public void SetSFX(float volume)
     {
         SFXVolume.sfxVolume = volume;
+        if(volume <= 0.35)
+        {
+            SFXVolume.sfxVolume = -80;
+        }
+        print(SFXVolume.sfxVolume);
     }
 
     public void SetFullScreen(bool isFullScreen)

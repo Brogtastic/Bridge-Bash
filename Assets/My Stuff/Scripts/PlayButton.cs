@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayButton : MonoBehaviour
     private int mouseOver;
     private float coolCounter;
     private bool mouseOverBool;
+    public AudioMixer audioMixer;
+    public Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,11 @@ public class PlayButton : MonoBehaviour
         mouseOver = 0;
         anim = GetComponent<Animator>();
         coolCounter = 0;
+        audioMixer.SetFloat("volume", SFXVolume.musicVolume);
+        if(SFXVolume.musicVolume <= -35.8)
+        {
+            audioMixer.SetFloat("volume", -80);
+        }
     }
 
     // Update is called once per frame
