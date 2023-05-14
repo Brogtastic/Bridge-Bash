@@ -89,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
     private PauseTextScript pauseText;
     private RestartButton restartButton;
     private MainMenuButton mainMenuButton;
+    private ResumeButton resumeButton;
     private PointScore pointScore;
     public ParticleSystem hammerDust;
     public HealthScript healthScript;
@@ -116,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         restartButton = GameObject.Find("Restart Button Idle").GetComponent<RestartButton>();
         mainMenuButton = GameObject.Find("Main Menu Button Idle").GetComponent<MainMenuButton>();
         pointScore = GameObject.Find("ScoreText").GetComponent<PointScore>();
+        resumeButton = GameObject.Find("Resume Button").GetComponent<ResumeButton>();
 
         GlobalEnemyCheck.isEnemyFirst = false;
         GlobalEnemyCheck.isEnemySecond = false;
@@ -368,29 +370,41 @@ public class PlayerMovement : MonoBehaviour
 
         if (((Input.GetKeyDown(KeyCode.P)) || (Input.GetKeyDown(KeyCode.Escape))) && (isPaused == true) && (pauseCoolDownCounter <= 0) && (currentHealth > 0))
         {
-            pointScore.UnpauseTheMusic();
-            pauseText.UnpauseThisWhore();
-            restartButton.PauseRestartHide();
-            mainMenuButton.MainMenuRestartHide();
-            isPaused = false;
-            Global.isPaused = false;
-            pauseCoolDownCounter = 1f;
-            StartCoroutine(PauseCoolDown());
-            Time.timeScale = 1f;
+            resumeGame();
         }
         if (((Input.GetKeyDown(KeyCode.P)) || (Input.GetKeyDown(KeyCode.Escape))) && (isPaused == false) && (pauseCoolDownCounter <= 0) && (currentHealth > 0))
         {
-            pointScore.PauseTheMusic();
-            pauseText.PauseThisWhore();
-            restartButton.PauseRestartShow();
-            mainMenuButton.MainMenuRestartShow();
-            isPaused = true;
-            Global.isPaused = true;
-            pauseCoolDownCounter = 1f;
-            StartCoroutine(PauseCoolDown());
-            Time.timeScale = 0f;
+            pauseGame();
         }
 
+    }
+
+    public void resumeGame()
+    {
+        pointScore.UnpauseTheMusic();
+        pauseText.UnpauseThisWhore();
+        restartButton.PauseRestartHide();
+        mainMenuButton.MainMenuRestartHide();
+        resumeButton.ResumeHide();
+        isPaused = false;
+        Global.isPaused = false;
+        pauseCoolDownCounter = 1f;
+        StartCoroutine(PauseCoolDown());
+        Time.timeScale = 1f;
+    }
+
+    public void pauseGame()
+    {
+        pointScore.PauseTheMusic();
+        pauseText.PauseThisWhore();
+        restartButton.PauseRestartShow();
+        mainMenuButton.MainMenuRestartShow();
+        resumeButton.ResumeShow();
+        isPaused = true;
+        Global.isPaused = true;
+        pauseCoolDownCounter = 1f;
+        StartCoroutine(PauseCoolDown());
+        Time.timeScale = 0f;
     }
 
     private IEnumerator PauseCoolDown()

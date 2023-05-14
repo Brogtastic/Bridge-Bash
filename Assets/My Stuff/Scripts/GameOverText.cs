@@ -7,7 +7,7 @@ public class GameOverText : MonoBehaviour
 {
 
     public static GameOverText instance;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI gameOverText;
     private Canvas renderCanvas;
 
     private Rigidbody2D rb;
@@ -15,13 +15,6 @@ public class GameOverText : MonoBehaviour
     private bool repeat;
 
     private float myCounter;
-
-    private void Awake()
-    {
-        text = GetComponent<TextMeshProUGUI>();
-
-    }
-
 
 
     // Start is called before the first frame update
@@ -42,7 +35,8 @@ public class GameOverText : MonoBehaviour
     {
         if((Global.currentHealth <= 0) && (repeat == false))
         {
-            
+            gameOverText = GetComponent<TextMeshProUGUI>();
+
             StartCoroutine(BITCH());
             repeat = true;
 
@@ -52,11 +46,11 @@ public class GameOverText : MonoBehaviour
 
     private IEnumerator BITCH()
     {
-        text.canvasRenderer.SetAlpha(0.01f);
+        gameOverText.canvasRenderer.SetAlpha(0.01f);
         this.transform.position = new Vector2(0, 2);
 
         yield return new WaitForSeconds(1f);
         transform.localScale = new Vector2(0.2f, 0.2f);
-        text.CrossFadeAlpha(1.0f, 0.5f, false);
+        gameOverText.CrossFadeAlpha(1.0f, 0.5f, false);
     }
 }

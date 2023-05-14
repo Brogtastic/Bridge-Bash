@@ -74,7 +74,7 @@ public class HoverEnemyScript : MonoBehaviour
     private Animator anim;
     public PlayerMovement playerMovement;
 
-    private enum MovementState { flying, die}
+    private enum MovementState { flying, die, follow}
 
     private bool okayDie = false;
     private bool isPecking;
@@ -135,58 +135,35 @@ public class HoverEnemyScript : MonoBehaviour
         {
 
             currentHealth -= damage;
-            if (currentHealth > 0)
+
+            int rand = GetRandomNumber(0, 4);
+            switch (rand)
             {
-                int rand = GetRandomNumber(0, 2);
-                switch (rand)
-                {
-                    case 0:
-                        audio.Play("SmallCall1");
-                        break;
-                    case 1:
-                        audio.Play("SmallCall2");
-                        break;
-                }
-                audio.Play("SmallDamage");
-            }
-            else
-            {
-                if (color == "blue")
-                {
+                case 0:
                     audio.Play("BigDamage");
                     audio.Play("BigCall");
-                }
-                if (color == "red")
-                {
+                    break;
+                case 1:
                     audio.Play("BigDamage");
                     audio.Play("SmallCall2");
-                }
-                if (color == "green")
-                {
+                    break;
+                case 2:
                     audio.Play("BigDamage");
                     audio.Play("SmallCall1");
-                }
-                if (color == "white")
-                {
+                    break;
+                case 3:
                     audio.Play("BigDamage");
                     audio.Play("BigCall");
-                }
+                    break;
             }
+
+
+            StartCoroutine(TimePauseEffect());
+            shake.camShake();
+
             GlobalEnemyCheck.invincibilityCounter = invincibilityTime;
             invincibility = true;
 
-            if (rb.velocity.y != 0)
-            {
-                shake.camShake2();
-            }
-            if (isChasing == false)
-            {
-                shake.camShake();
-            }
-            if ((rb.velocity.y != 0) && (currentHealth > 0))
-            {
-                StartCoroutine(TimePauseEffect());
-            }
         }
 
         KBCounter = KBTotalTime;
@@ -360,8 +337,11 @@ public class HoverEnemyScript : MonoBehaviour
             //HOVER SHIT
             if ((hoverPhase == 1) && (whichSide == 1))
             {
-                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 isHovering = true;
+                if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("HummingbirdFly"))
+                {
+                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                }
                 hoverGetThereCounter += Time.deltaTime;
                 hoverSpeed = hoverSpeed + (hoverGetThereCounter * 3);
 
@@ -411,8 +391,11 @@ public class HoverEnemyScript : MonoBehaviour
 
             if ((hoverPhase == 1) && (whichSide == 0))
             {
-                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 isHovering = true;
+                if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("HummingbirdFly"))
+                {
+                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                }
 
                 hoverGetThereCounter += Time.deltaTime;
                 hoverSpeed = hoverSpeed + (hoverGetThereCounter * 3);
@@ -544,6 +527,7 @@ public class HoverEnemyScript : MonoBehaviour
     public void GoToPointRight()
     {
         takeItFromHere = true;
+        hoverPhase = 1;
         if (Global.isPlayerFacingRight == true)
         {
             whichSide = 1;
@@ -552,13 +536,13 @@ public class HoverEnemyScript : MonoBehaviour
         {
             whichSide = 0;
         }
-        hoverPhase = 1;
 
     }
 
     public void GoToPointLeft()
     {
         takeItFromHere = true;
+        hoverPhase = 1;
         if (Global.isPlayerFacingRight == true)
         {
             whichSide = 0;
@@ -567,7 +551,6 @@ public class HoverEnemyScript : MonoBehaviour
         {
             whichSide = 1;
         }
-        hoverPhase = 1;
     }
 
     public void GoToPointTop()
@@ -621,9 +604,13 @@ public class HoverEnemyScript : MonoBehaviour
         {
             state = MovementState.die;
         }
-        else
+        else if (hoverPhase > 0)
         {
             state = MovementState.flying;
+        }
+        else
+        {
+            state = MovementState.follow; 
         }
 
         if (Global.currentHealth <= 0)
@@ -710,11 +697,11 @@ public class HoverEnemyScript : MonoBehaviour
     {
         if (Global.knockFromRight == true)
         {
-            rb.velocity = new Vector2(-KBAttackForce, KBForceUp);
+            rb.velocity = new Vector2(-KBAttackForce, Math.Abs(KBForceUp));
         }
         if (Global.knockFromRight == false)
         {
-            rb.velocity = new Vector2(KBAttackForce, KBForceUp);
+            rb.velocity = new Vector2(KBAttackForce, Math.Abs(KBForceUp));
         }
         isHovering = false;
     }
