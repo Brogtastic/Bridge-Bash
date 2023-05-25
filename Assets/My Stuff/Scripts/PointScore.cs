@@ -33,6 +33,12 @@ public class PointScore : MonoBehaviour
         {
             audioSource.Stop();
         }
+
+        if(score > Global.highScore)
+        {
+            Global.highScore = score;
+            PlayerPrefs.SetInt("HighScore", Global.highScore);
+        }
     }
 
     public void PauseTheMusic()
@@ -174,7 +180,7 @@ public class PointScore : MonoBehaviour
             framerate = .0000000001f;
             for (int i = 0; i < (pointValue / 14); i++)
             {
-                score += 14;
+                score += 17;
                 text.text = score.ToString();
                 if (text.text.Length < 8)
                 {
@@ -188,7 +194,7 @@ public class PointScore : MonoBehaviour
                 yield return new WaitForSeconds(framerate);
                 this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
             }
-            score += pointValue % 14;
+            score += pointValue % 17;
             text.text = score.ToString();
             if (text.text.Length < 8)
             {
@@ -203,7 +209,7 @@ public class PointScore : MonoBehaviour
             framerate = .0000000001f;
             for (int i = 0; i < (pointValue / 20); i++)
             {
-                score += 20;
+                score += 22;
                 text.text = score.ToString();
                 if (text.text.Length < 8)
                 {
@@ -217,7 +223,7 @@ public class PointScore : MonoBehaviour
                 yield return new WaitForSeconds(framerate);
                 this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
             }
-            score += pointValue % 20;
+            score += pointValue % 22;
             text.text = score.ToString();
             if (text.text.Length < 8)
             {

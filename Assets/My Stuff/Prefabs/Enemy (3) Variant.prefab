@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
       propertyPath: speed
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
       propertyPath: maxHealth
@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
       propertyPath: attackDamage
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
       propertyPath: dropPercentage
@@ -125,11 +125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6712126899918789670, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 3.3333333
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6712126899918789670, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.3333333
+      value: 2.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}

@@ -17,6 +17,15 @@ public class ScoreTracker : MonoBehaviour
         {
             instance = this;
         }
+
+        score = PlayerPrefs.GetInt("Coins", 0);
+        text.text = "X" + score.ToString();
+
+    }
+
+    private void Update()
+    {
+        PlayerPrefs.SetInt("Coins", score);
     }
 
     public void ChangeScore(int coinValue)

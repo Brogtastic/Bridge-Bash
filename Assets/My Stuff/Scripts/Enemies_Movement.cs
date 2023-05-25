@@ -617,26 +617,28 @@ public class Enemies_Movement : MonoBehaviour
     void UpdateAnimationState()
     {
         MovementState state;
+        Random rnd = new Random();
+        float idleRand = (float) rnd.Next(-3, 5) * 0.1f;
 
-        if(color == "red")
+        if (color == "red")
         {
             anim.SetFloat("flySpeed", 2f);
-            anim.SetFloat("flyIdleSpeed", 1.15f);
+            anim.SetFloat("flyIdleSpeed", 1.15f + idleRand);
         }
         if (color == "blue")
         {
             anim.SetFloat("flySpeed", 1f);
-            anim.SetFloat("flyIdleSpeed", 0.93f);
+            anim.SetFloat("flyIdleSpeed", 0.93f + idleRand);
         }
         if (color == "green")
         {
             anim.SetFloat("flySpeed", 1.3f);
-            anim.SetFloat("flyIdleSpeed", 1f);
+            anim.SetFloat("flyIdleSpeed", 1f + idleRand);
         }
         if (color == "white")
         {
             anim.SetFloat("flySpeed", 1.3f);
-            anim.SetFloat("flyIdleSpeed", 1.05f);
+            anim.SetFloat("flyIdleSpeed", 1.05f + idleRand);
         }
 
 

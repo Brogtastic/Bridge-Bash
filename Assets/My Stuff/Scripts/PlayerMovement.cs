@@ -13,6 +13,7 @@ static class Global
 
     public static int maxHealth;
     public static int currentHealth;
+    public static int highScore;
 
     public static float KBCounter;
     public static float KBDamageCounter;

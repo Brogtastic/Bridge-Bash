@@ -8,14 +8,9 @@ public class beginningVariables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SFXVolume.sfxVolume = 1;
-        SFXVolume.musicVolume = -11f;
-        SceneManager.LoadScene("MainMenu");
-    }
+        SFXVolume.sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        SFXVolume.musicVolume = PlayerPrefs.GetFloat("MusicVolume", -11f);
+        //Global.highScore = PlayerPrefs.GetInt("HighScore", 0);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
