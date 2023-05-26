@@ -46,20 +46,7 @@ public class RandomSpawner : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            //testing phase
-            if ((time > interval) && (phase == 3))
-            {
-                int randEnemy = Random.Range(0, testingPrefabs.Length);
-                int randSpawnPoint = Random.Range(0, spawnPoints.Length);
-
-                GlobalSpawn.thisSpawnPoint = randSpawnPoint;
-
-                Instantiate(testingPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
-
-                time = 0f;
-
-            }
-            //actual phases
+            //a
             if ((time > interval) && (phase == 1))
             {
                 int randEnemy = Random.Range(0, enemyPrefabs.Length);
@@ -72,14 +59,48 @@ public class RandomSpawner : MonoBehaviour
                 time = 0f;
 
             }
+            // phase 2
             if ((time > interval) && (phase == 2))
             {
                 int randEnemy = Random.Range(0, enemyPrefabs2.Length);
-                int randSpawnPoint = Random.Range(0, spawnPoints2.Length);
+                int randSpawnPoint = Random.Range(0, spawnPoints.Length);
 
                 GlobalSpawn.thisSpawnPoint = randSpawnPoint;
 
-                Instantiate(enemyPrefabs2[randEnemy], spawnPoints2[randSpawnPoint].position, transform.rotation);
+                Instantiate(enemyPrefabs2[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
+
+                time = 0f;
+
+            }
+            //phase 3
+            if ((time > interval) && (phase == 3))
+            {
+                int randEnemy = Random.Range(0, testingPrefabs.Length);
+                int randSpawnPoint;
+                int randChance = Random.Range(0, 100);
+                if ((randEnemy == 0) && (Global.playerCoordinatesX >= 0)) // if it's the hover enemy and player's on the right
+                {
+                    randSpawnPoint = Random.Range(6, spawnPoints2.Length-2); // spawn on the left side
+                }
+                else if ((randEnemy == 0) && (Global.playerCoordinatesX < 0)) // if it's the hover enemy and player's on the left
+                {
+                    randSpawnPoint = Random.Range(8, spawnPoints2.Length); // spawn on the right side
+                }
+                else
+                {
+                    if (randChance < 10)
+                    {
+                        randSpawnPoint = Random.Range(0, spawnPoints2.Length); // spawn wherever (10% chance)
+                    }
+                    else
+                    {
+                        randSpawnPoint = Random.Range(0, spawnPoints2.Length-4); // spawn from top (90% chance)
+                    }
+                }
+
+                GlobalSpawn.thisSpawnPoint = randSpawnPoint;
+
+                Instantiate(testingPrefabs[randEnemy], spawnPoints2[randSpawnPoint].position, transform.rotation);
 
                 time = 0f;
 
@@ -100,22 +121,30 @@ public class RandomSpawner : MonoBehaviour
 
             }
             //phase 2
-            else if ((incrementTime > interval * 3) && (interval > 1.8f) && (phase == 2))
+            else if ((incrementTime > interval * 3) && (interval > 1.7f) && (phase == 2))
             {
                 Debug.Log("Phase 2 babyyyyy");
                 interval -= 0.1f;
                 Debug.Log("interval is " + interval);
                 incrementTime = 0f;
-                if (interval <= 1.8f)
+                if (interval <= 1.7f)
                 {
                     phase += 1;
-                    interval = 2;
+                    interval = 2.5f;
                 }
             }
+            //phase 3
             else if ((incrementTime > interval * 3) && (interval > 1.5f) && (phase == 3))
             {
                 interval -= 0.1f;
                 Debug.Log("interval is " + interval);
+                incrementTime = 0f;
+            }
+            //ultra phase 3
+            else if ((incrementTime > interval * 3) && (interval <= 1.5f) && (phase == 3))
+            {
+                interval -= 0.01f;
+                Debug.Log("ultra phase 3 interval is " + interval);
                 incrementTime = 0f;
             }
         }

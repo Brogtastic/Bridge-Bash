@@ -151,7 +151,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   attackRange: 0.5
-  attackDamage: 20
+  attackDamage: 12
   color: red
   maxHealth: 50
   target: {fileID: 0}

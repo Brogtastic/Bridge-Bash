@@ -63,7 +63,7 @@ public class OptionsMenu : MonoBehaviour
         audioMixer.SetFloat("volume", volume);
         SFXVolume.musicVolume = volume;
         PlayerPrefs.SetFloat("MusicVolume", volume);
-        if (SFXVolume.musicVolume <= -35.8)
+        if (SFXVolume.musicVolume <= -35.8f)
         {
             audioMixer.SetFloat("volume", -80);
         }
@@ -72,13 +72,17 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetSFX(float volume)
     {
-        SFXVolume.sfxVolume = volume;
         PlayerPrefs.SetFloat("SFXVolume", volume);
-        if(volume <= 0.35)
+        if(volume <= 0.05f)
         {
-            SFXVolume.sfxVolume = -80;
+            SFXVolume.sfxVolume = 0;
+        }
+        else
+        {
+            SFXVolume.sfxVolume = volume;
         }
         print(SFXVolume.sfxVolume);
+
     }
 
     public void SetFullScreen(bool isFullScreen)

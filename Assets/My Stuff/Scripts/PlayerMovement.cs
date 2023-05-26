@@ -101,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public AudioClip AirHit;
     [SerializeField] public AudioClip Ouch;
     private AudioSource audioSource;
+    private AudioManager audio;
 
     private enum MovementState { idle, running, jumping, falling, groundhit, jumphit, squat, squatup, grounddie}
 
@@ -119,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
         mainMenuButton = GameObject.Find("Main Menu Button Idle").GetComponent<MainMenuButton>();
         pointScore = GameObject.Find("ScoreText").GetComponent<PointScore>();
         resumeButton = GameObject.Find("Resume Button").GetComponent<ResumeButton>();
+        audio = FindObjectOfType<AudioManager>();
 
         GlobalEnemyCheck.isEnemyFirst = false;
         GlobalEnemyCheck.isEnemySecond = false;

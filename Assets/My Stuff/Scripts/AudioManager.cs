@@ -3,13 +3,13 @@ using UnityEngine;
 using System;
 
 
-
 public class AudioManager : MonoBehaviour
 {
 
     public Sound[] sounds;
+    public static AudioManager instance;
 
-    
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +26,10 @@ public class AudioManager : MonoBehaviour
     
     public void newSoundSet()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -38,6 +42,7 @@ public class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+
         s.source.Play();
     }
 }

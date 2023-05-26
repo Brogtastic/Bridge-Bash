@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 static class GlobalBlip
 {
     public static string recentColor;
@@ -30,44 +29,46 @@ public class ScoreBlip : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
         if (instance == null)
         {
             instance = this;
         }
+        rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
         transform.SetParent(GameObject.FindGameObjectWithTag("OverParent").transform, false);
         initialx = this.transform.position.x;
         recenty = this.transform.position.y;
 
-        if(GlobalBlip.recentColor == "red"){
+        string color = GlobalBlip.recentColor;
+
+        if (color == "red"){
             text.text = "+100";
             thisscore = 100;
             text.color = new Color(255, 0, 7, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(192, 0, 18, 188));
         }
-        if (GlobalBlip.recentColor == "green")
+        if (color == "green")
         {
             text.text = "+200";
             thisscore = 200;
             text.color = new Color(12, 197, 0, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(43, 125, 0, 188));
         }
-        if (GlobalBlip.recentColor == "blue")
+        if (color == "blue")
         {
             text.text = "+500";
             thisscore = 500;
             text.color = new Color(0, 105, 255, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(75, 144, 251, 188));
         }
-        if (GlobalBlip.recentColor == "white")
+        if (color == "white")
         {
             text.text = "+1000";
             thisscore = 1000;
             text.color = new Color(0, 253, 255, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(109, 35, 255, 188));
         }
-        if (GlobalBlip.recentColor == "orange")
+        if (color == "orange")
         {
             text.text = "+750";
             thisscore = 750;

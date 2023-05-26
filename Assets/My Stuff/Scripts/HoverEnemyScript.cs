@@ -208,8 +208,8 @@ public class HoverEnemyScript : MonoBehaviour
         if (wasDefeated == true)
         {
             OverParent.instance.setPosition(this.transform.position.x, this.transform.position.y);
-            Instantiate(myScore, this.transform.position, transform.rotation);
             GlobalBlip.recentColor = color;
+            Instantiate(myScore, this.transform.position, transform.rotation);
 
             pointValue = 750;
             PointScore.instance.ChangeScore(pointValue);

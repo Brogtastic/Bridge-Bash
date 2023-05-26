@@ -22,8 +22,9 @@ public class PlayButton : MonoBehaviour
         anim = GetComponent<Animator>();
         coolCounter = 0;
         SFXVolume.musicVolume = PlayerPrefs.GetFloat("MusicVolume", -11f);
+        SFXVolume.sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1);
         audioMixer.SetFloat("volume", SFXVolume.musicVolume);
-        if(SFXVolume.musicVolume <= -35.8)
+        if (SFXVolume.musicVolume <= -35.8)
         {
             audioMixer.SetFloat("volume", -80);
         }

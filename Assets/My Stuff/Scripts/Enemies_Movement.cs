@@ -180,7 +180,6 @@ public class Enemies_Movement : MonoBehaviour
         KBAttackCounter = 0f;
         if (invincibility == false)
         {
-            
             currentHealth -= damage;
             if (currentHealth > 0)
             {
@@ -307,9 +306,12 @@ public class Enemies_Movement : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         okayDie = true;
 
-        OverParent.instance.setPosition(this.transform.position.x, this.transform.position.y);
-        Instantiate(myScore, this.transform.position, transform.rotation);
-        GlobalBlip.recentColor = color;
+        // score blip gets generated in this coroutine
+        // I have to stagger them in millisecond intervals to prevent some weird overlap glitch 
+        // that happens when you kill two birds of differing colors at the same time
+        // and they both display the same score which they shouldn't but that's because
+        // score blip can't display two separate scores at the exact same time unfortunately
+        StartCoroutine(RandomScoreBlipStallTimeForPussies());
 
         PointScore.instance.ChangeScore(pointValue);
 
@@ -775,6 +777,17 @@ public class Enemies_Movement : MonoBehaviour
         Time.timeScale = 0.01f;
         yield return new WaitForSeconds(framerate);
         Time.timeScale = 1f;
+    }
+
+    private IEnumerator RandomScoreBlipStallTimeForPussies()
+    {
+        float framerate = UnityEngine.Random.Range(0.00001f, 0.07999f);
+
+        yield return new WaitForSeconds(framerate);
+
+        OverParent.instance.setPosition(this.transform.position.x, this.transform.position.y);
+        GlobalBlip.recentColor = color;
+        Instantiate(myScore, this.transform.position, transform.rotation);
     }
 
     private IEnumerator Heisdead()
