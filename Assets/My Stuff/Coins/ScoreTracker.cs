@@ -9,6 +9,7 @@ public class ScoreTracker : MonoBehaviour
     public static ScoreTracker instance;
     public TextMeshProUGUI text;
     int score;
+    int beginning_coins;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +19,16 @@ public class ScoreTracker : MonoBehaviour
             instance = this;
         }
 
-        score = PlayerPrefs.GetInt("Coins", 0);
+        beginning_coins = PlayerPrefs.GetInt("Coins", 0);
+
+        score = 0;
         text.text = "X" + score.ToString();
 
     }
 
     private void Update()
     {
-        PlayerPrefs.SetInt("Coins", score);
+        PlayerPrefs.SetInt("Coins", score + beginning_coins);
     }
 
     public void ChangeScore(int coinValue)

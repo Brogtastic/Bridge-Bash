@@ -7314,7 +7314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16.559998, y: -8.799988}
+  m_AnchoredPosition: {x: 16.390015, y: -9.450012}
   m_SizeDelta: {x: 153.463, y: 113.236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863662591
@@ -7370,7 +7370,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 21
+  m_fontStyle: 17
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -8607,8 +8607,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000023842, y: 71.7}
-  m_SizeDelta: {x: 923.772, y: 194.754}
+  m_AnchoredPosition: {x: -0.00000068545, y: 102.99}
+  m_SizeDelta: {x: 928.3, y: 313.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734385292
 MonoBehaviour:
@@ -8664,8 +8664,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8693,7 +8693,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 86.57837, w: 0}
+  m_margin: {x: 0, y: 0, z: -2.8338625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8719,7 +8719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6785be7964543d9459426b8cf7a15a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 0}
+  gameOverText: {fileID: 1734385292}
 --- !u!1 &1747234171
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,6 @@ public class GameOverText : MonoBehaviour
     {
         if((Global.currentHealth <= 0) && (repeat == false))
         {
-            gameOverText = GetComponent<TextMeshProUGUI>();
 
             StartCoroutine(BITCH());
             repeat = true;
@@ -47,7 +46,7 @@ public class GameOverText : MonoBehaviour
     private IEnumerator BITCH()
     {
         gameOverText.canvasRenderer.SetAlpha(0.01f);
-        this.transform.position = new Vector2(0, 2);
+        this.transform.position = new Vector2(0, 0);
 
         yield return new WaitForSeconds(1f);
         transform.localScale = new Vector2(0.2f, 0.2f);

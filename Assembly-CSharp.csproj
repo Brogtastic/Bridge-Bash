@@ -89,6 +89,9 @@
     <Compile Include="Assets\HighScoreText.cs" />
     <Compile Include="Assets\ResumeButton.cs" />
     <Compile Include="Assets\My Stuff\Scripts\Camera_Controller.cs" />
+    <Compile Include="Assets\CoinTextMainMenu.cs" />
+    <Compile Include="Assets\MainMenuCoinDisplay.cs" />
+    <Compile Include="Assets\ResetButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

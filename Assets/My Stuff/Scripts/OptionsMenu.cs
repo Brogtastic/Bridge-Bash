@@ -56,6 +56,15 @@ public class OptionsMenu : MonoBehaviour
             audio.newSoundSet();
             audio.Play("SmallCall2");
         }
+
+        if(ResetPressed.state == true)
+        {
+            SetVolume(-11);
+            SetSFX(1);
+            musicSlider.value = -11;
+            sfxSlider.value = 1;
+            ResetPressed.state = false;
+        }
     }
 
     public void SetVolume(float volume)
