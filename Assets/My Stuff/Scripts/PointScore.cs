@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Random = System.Random;
 
 public class PointScore : MonoBehaviour
 {
@@ -58,27 +59,13 @@ public class PointScore : MonoBehaviour
         float framerate = 0.00001f;
         float intensity = 0.05f;
 
+        Random rnd = new Random();
+        int factor = rnd.Next(17, 27);
 
-        if(pointValue <= 99)
+        framerate = .0000000001f;
+        for (int i = 0; i < (pointValue / factor); i++)
         {
-            framerate = .0000000001f;
-            for (int i = 0; i < (pointValue); i++)
-            {
-                score += 1;
-                text.text = score.ToString();
-                if (text.text.Length < 8)
-                {
-                    for (int j = 0; j < 8 - score.ToString().Length; j++)
-                    {
-                        text.text = text.text.Insert(0, "0");
-                    }
-                }
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + intensity);
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
-            }
-            score += pointValue % 1;
+            score += factor;
             text.text = score.ToString();
             if (text.text.Length < 8)
             {
@@ -87,153 +74,21 @@ public class PointScore : MonoBehaviour
                     text.text = text.text.Insert(0, "0");
                 }
             }
+            yield return new WaitForSeconds(framerate);
+            this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + intensity);
+            yield return new WaitForSeconds(framerate);
+            this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
         }
-        if (pointValue == 100)
+        score += pointValue % factor;
+        text.text = score.ToString();
+        if (text.text.Length < 8)
         {
-            framerate = .0000000001f;
-            for (int i = 0; i < (pointValue / 3); i++)
+            for (int j = 0; j < 8 - score.ToString().Length; j++)
             {
-                score += 3;
-                text.text = score.ToString();
-                if (text.text.Length < 8)
-                {
-                    for (int j = 0; j < 8 - score.ToString().Length; j++)
-                    {
-                        text.text = text.text.Insert(0, "0");
-                    }
-                }
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + intensity);
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
-            }
-            score += pointValue % 3;
-            text.text = score.ToString();
-            if (text.text.Length < 8)
-            {
-                for (int j = 0; j < 8 - score.ToString().Length; j++)
-                {
-                    text.text = text.text.Insert(0, "0");
-                }
+                text.text = text.text.Insert(0, "0");
             }
         }
-        if (pointValue == 200)
-        {
-            framerate = .0000000001f;
-            for (int i = 0; i < (pointValue / 7); i++)
-            {
-                score += 7;
-                text.text = score.ToString();
-                if (text.text.Length < 8)
-                {
-                    for (int j = 0; j < 8 - score.ToString().Length; j++)
-                    {
-                        text.text = text.text.Insert(0, "0");
-                    }
-                }
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + intensity);
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
-            }
-            score += pointValue % 7;
-            text.text = score.ToString();
-            if (text.text.Length < 8)
-            {
-                for (int j = 0; j < 8 - score.ToString().Length; j++)
-                {
-                    text.text = text.text.Insert(0, "0");
-                }
-            }
-        }
-        if (pointValue == 500)
-        {
-            framerate = .0000000001f;
-            for (int i = 0; i < (pointValue / 14); i++)
-            {
-                score += 14;
-                text.text = score.ToString();
-                if (text.text.Length < 8)
-                {
-                    for (int j = 0; j < 8 - score.ToString().Length; j++)
-                    {
-                        text.text = text.text.Insert(0, "0");
-                    }
-                }
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + intensity);
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
-            }
-            score += pointValue % 14;
-            text.text = score.ToString();
-            if (text.text.Length < 8)
-            {
-                for (int j = 0; j < 8 - score.ToString().Length; j++)
-                {
-                    text.text = text.text.Insert(0, "0");
-                }
-            }
-        }
-        if (pointValue == 750)
-        {
-            framerate = .0000000001f;
-            for (int i = 0; i < (pointValue / 14); i++)
-            {
-                score += 17;
-                text.text = score.ToString();
-                if (text.text.Length < 8)
-                {
-                    for (int j = 0; j < 8 - score.ToString().Length; j++)
-                    {
-                        text.text = text.text.Insert(0, "0");
-                    }
-                }
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + intensity);
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
-            }
-            score += pointValue % 17;
-            text.text = score.ToString();
-            if (text.text.Length < 8)
-            {
-                for (int j = 0; j < 8 - score.ToString().Length; j++)
-                {
-                    text.text = text.text.Insert(0, "0");
-                }
-            }
-        }
-        if (pointValue == 1000)
-        {
-            framerate = .0000000001f;
-            for (int i = 0; i < (pointValue / 20); i++)
-            {
-                score += 22;
-                text.text = score.ToString();
-                if (text.text.Length < 8)
-                {
-                    for (int j = 0; j < 8 - score.ToString().Length; j++)
-                    {
-                        text.text = text.text.Insert(0, "0");
-                    }
-                }
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + intensity);
-                yield return new WaitForSeconds(framerate);
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - intensity);
-            }
-            score += pointValue % 22;
-            text.text = score.ToString();
-            if (text.text.Length < 8)
-            {
-                for (int j = 0; j < 8 - score.ToString().Length; j++)
-                {
-                    text.text = text.text.Insert(0, "0");
-                }
-            }
-        }
-        
+
 
     }
 }

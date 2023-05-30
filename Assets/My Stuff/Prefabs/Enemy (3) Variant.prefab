@@ -28,6 +28,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
+      propertyPath: hitPointValue
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1164746756855874253, guid: 7fd63aea6aae8ea43a81817544c170f8, type: 3}
       propertyPath: dropPercentage
       value: 75
       objectReference: {fileID: 0}

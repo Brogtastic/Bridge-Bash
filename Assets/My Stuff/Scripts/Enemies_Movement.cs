@@ -39,6 +39,7 @@ public class Enemies_Movement : MonoBehaviour
 
     public int speed = 5;
     public int pointValue;
+    public int hitPointValue;
     public float rotateSpeed = 200f;
     private float dirX = 0f;
 
@@ -193,7 +194,12 @@ public class Enemies_Movement : MonoBehaviour
                         audio.Play("SmallCall2");
                         break;
                 }
+
                 audio.Play("SmallDamage");
+                GlobalBlip.recentColor = "hitPoint";
+                PointScore.instance.ChangeScore(hitPointValue);
+                OverParent.instance.setPosition(this.transform.position.x, this.transform.position.y);
+                Instantiate(myScore, this.transform.position, transform.rotation);
             }
             else
             {
@@ -781,12 +787,12 @@ public class Enemies_Movement : MonoBehaviour
 
     private IEnumerator RandomScoreBlipStallTimeForPussies()
     {
-        float framerate = UnityEngine.Random.Range(0.00001f, 0.07999f);
+        float framerate = UnityEngine.Random.Range(0.00001f, 0.09999f);
 
         yield return new WaitForSeconds(framerate);
 
-        OverParent.instance.setPosition(this.transform.position.x, this.transform.position.y);
         GlobalBlip.recentColor = color;
+        OverParent.instance.setPosition(this.transform.position.x, this.transform.position.y);
         Instantiate(myScore, this.transform.position, transform.rotation);
     }
 

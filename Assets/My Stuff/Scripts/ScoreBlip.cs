@@ -6,6 +6,7 @@ using TMPro;
 static class GlobalBlip
 {
     public static string recentColor;
+    public static int recentPoints;
 }
 
 public class ScoreBlip : MonoBehaviour
@@ -40,40 +41,47 @@ public class ScoreBlip : MonoBehaviour
         recenty = this.transform.position.y;
 
         string color = GlobalBlip.recentColor;
-
+        int points = GlobalBlip.recentPoints;
+   
         if (color == "red"){
             text.text = "+100";
             thisscore = 100;
             text.color = new Color(255, 0, 7, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(192, 0, 18, 188));
         }
-        if (color == "green")
+        else if (color == "green")
         {
             text.text = "+200";
             thisscore = 200;
             text.color = new Color(12, 197, 0, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(43, 125, 0, 188));
         }
-        if (color == "blue")
+        else if (color == "blue")
         {
             text.text = "+500";
             thisscore = 500;
             text.color = new Color(0, 105, 255, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(75, 144, 251, 188));
         }
-        if (color == "white")
+        else if (color == "white")
         {
             text.text = "+1000";
             thisscore = 1000;
             text.color = new Color(0, 253, 255, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(109, 35, 255, 188));
         }
-        if (color == "orange")
+        else if (color == "orange")
         {
             text.text = "+750";
             thisscore = 750;
             text.color = new Color(0, 253, 255, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(109, 35, 255, 188));
+        }
+        else
+        {
+            text.text = GlobalBlip.recentPoints.ToString();
+            text.color = new Color(0, 0, 0, 0);
+            text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(255, 255, 255, 188));
         }
 
         StartCoroutine(Animate());

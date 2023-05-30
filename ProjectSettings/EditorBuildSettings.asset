@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/My Stuff/Scenes/OptionsMenu.unity
     guid: 74da8f10ee572f84283a0f35dc3ced0e
-  - enabled: 1
-    path: Assets/My Stuff/Scenes/PreMainMenu.unity
-    guid: d1f1976620f52a54bb0238ba7e78966e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/My Stuff/Scenes/Controls.unity
     guid: b04f2f48c0141844e9b8231f53ed2f8a
