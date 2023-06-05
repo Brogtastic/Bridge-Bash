@@ -1,0 +1,15 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="BackButtonControlsMenu">
+			<method name="MoveToScene"/>
+		</type>
+		<type fullname="OptionsMenu">
+			<method name="SetFullScreen"/>
+			<method name="SetSFX"/>
+			<method name="SetVolume"/>
+		</type>
+		<type fullname="ResetButton">
+			<method name="onResetProgress"/>
+		</type>
+	</assembly>
+</linker>

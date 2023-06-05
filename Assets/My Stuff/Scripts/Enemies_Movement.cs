@@ -197,6 +197,7 @@ public class Enemies_Movement : MonoBehaviour
 
                 audio.Play("SmallDamage");
                 GlobalBlip.recentColor = "hitPoint";
+                GlobalBlip.recentPoints = hitPointValue;
                 PointScore.instance.ChangeScore(hitPointValue);
                 OverParent.instance.setPosition(this.transform.position.x, this.transform.position.y);
                 Instantiate(myScore, this.transform.position, transform.rotation);

@@ -7,6 +7,7 @@ public class ToMainFromOptionsButton : MonoBehaviour
 {
     private void OnMouseDown()
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene("MainMenu");
     }
 }

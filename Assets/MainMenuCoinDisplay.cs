@@ -15,6 +15,6 @@ public class MainMenuCoinDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(14.96f - CoinPositionInstructor.pos * coinLengthFactor, 7.83f);
+        transform.position = new Vector2(14.58f - CoinPositionInstructor.pos * coinLengthFactor, 7.8f);
     }
 }

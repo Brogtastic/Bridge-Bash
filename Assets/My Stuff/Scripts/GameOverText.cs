@@ -45,6 +45,7 @@ public class GameOverText : MonoBehaviour
 
     private IEnumerator BITCH()
     {
+        PlayerPrefs.Save();
         gameOverText.canvasRenderer.SetAlpha(0.01f);
         this.transform.position = new Vector2(0, 0);
 

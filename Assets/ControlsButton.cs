@@ -41,6 +41,16 @@ public class ControlsButton : MonoBehaviour
             mouseOver = 2;
         }
 
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") && (mouseOverBool == true))
+        {
+            mouseOver = 1;
+            Vector2 objectScale = transform.localScale;
+            if (objectScale == Vector2.one)
+            {
+                StartCoroutine(Grow());
+            }
+        }
+
         if (mouseOver == 0)
         {
             transform.localScale = new Vector2(1, 1);

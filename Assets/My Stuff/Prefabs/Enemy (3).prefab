@@ -157,7 +157,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 4
   pointValue: 100
-  hitPointValue: 0
+  hitPointValue: 4
   rotateSpeed: 200
   KBForce: 17.68
   KBAttackForce: 18

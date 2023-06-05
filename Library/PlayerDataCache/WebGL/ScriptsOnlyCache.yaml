@@ -65,6 +65,12 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -1040,7 +1046,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreak2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 06001e6f10771983924bca1721acb76d
+      Hash: 49d8caf071b0e1240aa47a9726431409
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemies_Movement
@@ -1674,4 +1680,4 @@ ScriptsOnlyBuild:
   - Assets/My Stuff/Scenes/PlayingGame 1.unity
   - Assets/My Stuff/Scenes/OptionsMenu.unity
   - Assets/My Stuff/Scenes/Controls.unity
-  playerPath: C:/Users/Michael/Desktop/unity build
+  playerPath: C:/Users/Michael/Desktop/Bridge Bash Export

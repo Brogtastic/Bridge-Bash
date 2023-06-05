@@ -41,7 +41,7 @@ public class ScoreTracker : MonoBehaviour
     private IEnumerator PlusAnimation(int coinValue)
     {
         //float framerate = 0.01333f;
-        float framerate = 0.04f;
+        float framerate = 0.005f;
         framerate = framerate / coinValue;
 
         for (int i = 1; i < coinValue + 1; i++)

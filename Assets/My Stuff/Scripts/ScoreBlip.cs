@@ -21,6 +21,7 @@ public class ScoreBlip : MonoBehaviour
     private SpriteRenderer sprite;
     private float initialx;
     int thisscore;
+    private string color;
 
     private void Awake()
     {
@@ -40,10 +41,10 @@ public class ScoreBlip : MonoBehaviour
         initialx = this.transform.position.x;
         recenty = this.transform.position.y;
 
-        string color = GlobalBlip.recentColor;
+        color = GlobalBlip.recentColor;
         int points = GlobalBlip.recentPoints;
-   
-        if (color == "red"){
+
+        if (color == "red") {
             text.text = "+100";
             thisscore = 100;
             text.color = new Color(255, 0, 7, 255);
@@ -77,17 +78,19 @@ public class ScoreBlip : MonoBehaviour
             text.color = new Color(0, 253, 255, 255);
             text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(109, 35, 255, 188));
         }
-        else
+        else if (color == "hitPoint")
         {
-            text.text = GlobalBlip.recentPoints.ToString();
-            text.color = new Color(0, 0, 0, 0);
-            text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(255, 255, 255, 188));
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            text.text = "+" + GlobalBlip.recentPoints.ToString();
+            thisscore = GlobalBlip.recentPoints;
+            text.color = new Color(255, 255, 255, 255);
+            text.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, new Color32(0, 0, 0, 200));
         }
 
         StartCoroutine(Animate());
     }
 
-    
+
     private void FixedUpdate()
     {
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
@@ -99,7 +102,7 @@ public class ScoreBlip : MonoBehaviour
             SetTransformY(recenty);
         }
         recenty = transform.position.y;
-        
+
     }
 
     void SetTransformX(float n)
@@ -115,8 +118,19 @@ public class ScoreBlip : MonoBehaviour
     private IEnumerator Animate()
     {
         Vector2 objectScale = transform.localScale;
+        float framerateanimate;
+        float frameratefade;
 
-        float framerateanimate = 0.05f;
+        if (color == "hitPoint")
+        {
+            framerateanimate = 0.01f;
+            frameratefade = 0.18f;
+        }
+        else
+        {
+            framerateanimate = 0.05f;
+            frameratefade = 0.3f;
+        }
 
         transform.localScale = new Vector2(0.6f, objectScale.y + 0.5f);
         yield return new WaitForSeconds(framerateanimate);
@@ -129,10 +143,10 @@ public class ScoreBlip : MonoBehaviour
         transform.localScale = new Vector2(objectScale.x - 0.5f, 1.5f);
         yield return new WaitForSeconds(framerateanimate);
         transform.localScale = new Vector2(objectScale.x, objectScale.y);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(frameratefade);
 
-        text.CrossFadeAlpha(0f, 0.3f, true);
-        yield return new WaitForSeconds(0.3f);
+        text.CrossFadeAlpha(0f, frameratefade, true);
+        yield return new WaitForSeconds(frameratefade);
         Destroy(gameObject);
 
     }

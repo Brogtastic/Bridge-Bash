@@ -21,5 +21,6 @@ public class HighScoreText : MonoBehaviour
             }
         }
         text.text = text.text.Insert(0, "Hi-Score: ");
+        PlayerPrefs.Save();
     }
 }

@@ -28,10 +28,11 @@ public class PlayButton : MonoBehaviour
         {
             audioMixer.SetFloat("volume", -80);
         }
+        PlayerPrefs.Save();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Backward"))
         {
@@ -44,6 +45,16 @@ public class PlayButton : MonoBehaviour
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Forward") && (mouseOverBool == false))
         {
             mouseOver = 2;
+        }
+
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") && (mouseOverBool == true))
+        {
+            mouseOver = 1;
+            Vector2 objectScale = transform.localScale;
+            if (objectScale == Vector2.one)
+            {
+                StartCoroutine(Grow());
+            }
         }
 
         if (mouseOver == 0)
@@ -69,6 +80,7 @@ public class PlayButton : MonoBehaviour
 
     private void OnMouseDown()
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene("PlayingGame 1");
     }
 
